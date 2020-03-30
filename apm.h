@@ -33,7 +33,15 @@ typedef uint64_t apm_digit;
 #error "APM_DIGIT_SIZE must be 4 or 8"
 #endif
 
-typedef uint32_t apm_size;
+#define UINT8_C(v) v
+#define UINT16_C(v) v
+#define UINT32_C(v) v
+#define UINT64_C(v) v##ULL
+#define UINT8_MAX 0xff                   /* 255U */
+#define UINT16_MAX 0xffff                /* 65535U */
+#define UINT32_MAX 0xffffffff            /* 4294967295U */
+#define UINT64_MAX 0xffffffffffffffffULL /* 18446744073709551615ULL */
+typedef unsigned int apm_size;
 
 /* Set u[size] to zero. */
 #define apm_zero(u, size) memset((u), 0, APM_DIGIT_SIZE *(size))
@@ -164,14 +172,11 @@ apm_digit apm_lshifti(apm_digit *u, apm_size size, unsigned int shift);
 apm_digit apm_rshifti(apm_digit *u, apm_size size, unsigned int shift);
 
 /* Print u[size] in a radix on [2,36] to the stream fp. No newline is output. */
-void apm_fprint(const apm_digit *u,
-                apm_size size,
-                unsigned int radix,
-                char *fmt);
-/* Convenience macros for bases 2, 10, and 16, with fmt = KERN_INFO. */
-#define apm_print(u, size, b) apm_fprint((u), (size), (b), KERN_INFO)
-#define apm_print_dec(u, size) apm_fprint_dec((u), (size), KERN_INFO)
-#define apm_print_hex(u, size) apm_fprint_hex((u), (size), KERN_INFO)
+void apm_fprint(const apm_digit *u, apm_size size, unsigned int radix);
+/* Convenience macros for bases 2, 10, and 16. */
+#define apm_print(u, size, b) apm_fprint((u), (size), (b))
+#define apm_print_dec(u, size) apm_fprint_dec((u), (size))
+#define apm_print_hex(u, size) apm_fprint_hex((u), (size))
 
 #define APM_NORMALIZE(u, usize)         \
     while ((usize) && !(u)[(usize) -1]) \
