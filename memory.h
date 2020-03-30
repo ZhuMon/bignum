@@ -17,7 +17,7 @@ static inline void *xmalloc(size_t size)
     void *p;
     if (!(p = (*orig_malloc)(size, GFP_KERNEL))) {
         printk(KERN_ERR "Out of memory.\n");
-        abort();
+        return NULL;
     }
     return p;
 }
@@ -27,7 +27,7 @@ static inline void *xrealloc(void *ptr, size_t size)
     void *p;
     if (!(p = (*orig_realloc)(ptr, size, GFP_KERNEL)) && size != 0) {
         printk(KERN_ERR "Out of memory.\n");
-        abort();
+        return NULL;
     }
     return p;
 }
