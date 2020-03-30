@@ -1,5 +1,5 @@
-#include <linux/ctype.h>
 #include <linux/kernel.h>
+#include <linux/types.h>
 
 #include "apm.h"
 
@@ -283,7 +283,7 @@ static char *apm_get_str(const apm_digit *u,
     return out;
 }
 
-void apm_fprint(const apm_digit *u, apm_size size, unsigned int radix, FILE *fp)
+void apm_fprint(const apm_digit *u, apm_size size, unsigned int radix)
 {
     ASSERT(u != NULL);
 
@@ -295,6 +295,6 @@ void apm_fprint(const apm_digit *u, apm_size size, unsigned int radix, FILE *fp)
     char *str = MALLOC(string_size);
     char *p = apm_get_str(u, size, radix, str);
     ASSERT(p != NULL);
-    fputs(p, fp);
+    printk(KERN_INFO "%s", p);
     FREE(str);
 }

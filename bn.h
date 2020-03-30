@@ -47,8 +47,8 @@ void bn_mul(const bn *a, const bn *b, bn *p);
 /* B = A * A */
 void bn_sqr(const bn *a, bn *b);
 
-void bn_fprint(const bn *n, unsigned int base, char *fmt);
-#define bn_print(n, base) bn_fprint((n), (base), KERN_INFO)
+void bn_fprint(const bn *n, unsigned int base);
+#define bn_print(n, base) bn_fprint((n), (base))
 #define bn_print_dec(n) bn_print((n), 10)
 #define bn_print_hex(n) bn_print((n), 16)
 
