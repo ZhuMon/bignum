@@ -164,11 +164,14 @@ apm_digit apm_lshifti(apm_digit *u, apm_size size, unsigned int shift);
 apm_digit apm_rshifti(apm_digit *u, apm_size size, unsigned int shift);
 
 /* Print u[size] in a radix on [2,36] to the stream fp. No newline is output. */
-void apm_fprint(const apm_digit *u, apm_size size, unsigned int radix, FILE *fp);
-/* Convenience macros for bases 2, 10, and 16, with fp = stdout. */
-#define apm_print(u, size, b) apm_fprint((u), (size), (b), stdout)
-#define apm_print_dec(u, size) apm_fprint_dec((u), (size), stdout)
-#define apm_print_hex(u, size) apm_fprint_hex((u), (size), stdout)
+void apm_fprint(const apm_digit *u,
+                apm_size size,
+                unsigned int radix,
+                char *fmt);
+/* Convenience macros for bases 2, 10, and 16, with fmt = KERN_INFO. */
+#define apm_print(u, size, b) apm_fprint((u), (size), (b), KERN_INFO)
+#define apm_print_dec(u, size) apm_fprint_dec((u), (size), KERN_INFO)
+#define apm_print_hex(u, size) apm_fprint_hex((u), (size), KERN_INFO)
 
 #define APM_NORMALIZE(u, usize)         \
     while ((usize) && !(u)[(usize) -1]) \

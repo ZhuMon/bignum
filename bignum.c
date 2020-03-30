@@ -268,15 +268,15 @@ void bn_lshift(const bn *p, unsigned int bits, bn *q)
     }
 }
 
-void bn_fprint(const bn *n, unsigned int base, FILE *fp)
+void bn_fprint(const bn *n, unsigned int base, char *fmt)
 {
-    if (!fp)
-        fp = stdout;
+    if (!fmt)
+        fmt = KERN_INFO;
     if (n->size == 0) {
-        fputc('0', fp);
+        printk(fmt '0');
         return;
     }
     if (n->sign)
-        fputc('-', fp);
-    apm_fprint(n->digits, n->size, base, fp);
+        printk(fmt '-');
+    apm_fprint(n->digits, n->size, base, fmt);
 }
