@@ -15,7 +15,7 @@
  *
  * Exponentiation uses binary power algorithm from high bit to low bit.
  */
-static void fibonacci(uint64_t n, bn *fib)
+void fibonacci(uint64_t n, bn *fib)
 {
     if (unlikely(n <= 2)) {
         if (n == 0)
