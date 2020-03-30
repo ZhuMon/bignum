@@ -54,21 +54,4 @@ void fibonacci(uint64_t n, bn *fib)
     bn_free(a);
 }
 
-int main(int argc, char *argv[])
-{
-    bn_t fib = BN_INITIALIZER;
 
-    if (argc < 2)
-        return -1;
-
-    unsigned int n = strtoul(argv[1], NULL, 10);
-    if (!n)
-        return -2;
-
-    fibonacci(n, fib);
-    printf("Fib(%u)=", n), bn_print_dec(fib), printf("\n");
-
-    bn_free(fib);
-
-    return 0;
-}
