@@ -1,9 +1,9 @@
 #ifndef _MEMORY_H_
 #define _MEMORY_H_
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <linux/kernel.h>
+#include <linux/slab.h>
+#include <linux/string.h>
 
 static void *(*orig_malloc)(size_t) = malloc;
 static void *(*orig_realloc)(void *, size_t) = realloc;

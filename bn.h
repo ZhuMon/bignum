@@ -3,7 +3,7 @@
 #ifndef _BIGNUM_H_
 #define _BIGNUM_H_
 
-#include <stdio.h>
+#include <linux/kernel.h>
 
 #include "apm.h"
 

@@ -3,9 +3,9 @@
 #ifndef _APM_H_
 #define _APM_H_
 
-#include <stdint.h>
-#include <stdio.h>  /* for FILE*, stdout */
-#include <string.h> /* for memmove */
+#include <linux/types.h>
+#include <linux/kernel.h>  /* for FILE*, stdout */
+#include <linux/string.h> /* for memmove */
 
 #include "apm_internal.h"
 

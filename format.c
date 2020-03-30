@@ -1,5 +1,5 @@
-#include <ctype.h>
-#include <stdio.h>
+#include <linux/ctype.h>
+#include <linux/kernel.h>
 
 #include "apm.h"
 
