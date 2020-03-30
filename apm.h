@@ -126,11 +126,6 @@ apm_digit apm_sub_n(const apm_digit *u,
                     apm_size size,
                     apm_digit *w);
 
-/* Set u[usize] = u[usize] - v[vsize], usize >= vsize, and return the borrow. */
-apm_digit apm_subi(apm_digit *u,
-                   apm_size usize,
-                   const apm_digit *v,
-                   apm_size vsize);
 /* Set w[usize] = u[usize] - v[vsize], and return the borrow. */
 apm_digit apm_sub(const apm_digit *u,
                   apm_size usize,
