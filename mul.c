@@ -1,5 +1,3 @@
-#include <stdbool.h>
-
 #include "apm.h"
 
 /* Multiply u[usize] by v[vsize] and store the result in w[usize + vsize],

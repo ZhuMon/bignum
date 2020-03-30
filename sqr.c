@@ -1,5 +1,3 @@
-#include <stdbool.h>
-
 #include "apm.h"
 
 extern void _apm_mul_base(const apm_digit *u,
