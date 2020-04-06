@@ -178,6 +178,9 @@ void apm_fprint(const apm_digit *u, apm_size size, unsigned int radix);
 #define apm_print_dec(u, size) apm_fprint_dec((u), (size))
 #define apm_print_hex(u, size) apm_fprint_hex((u), (size))
 
+/* Return u[size] in base 10 on the stream fp. */
+char *apm_return(const apm_digit *u, apm_size size);
+
 #define APM_NORMALIZE(u, usize)         \
     while ((usize) && !(u)[(usize) -1]) \
         --(usize);

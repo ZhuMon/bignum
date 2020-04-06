@@ -278,3 +278,14 @@ void bn_fprint(const bn *n, unsigned int base)
         printk(KERN_INFO "-");
     apm_fprint(n->digits, n->size, base);
 }
+
+char *bn_return(const bn *n)
+{
+    if (n->size == 0) {
+        return "0";
+    }
+
+    // assume no number less than 0
+
+    return apm_return(n->digits, n->size);
+}

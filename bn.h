@@ -52,6 +52,8 @@ void bn_fprint(const bn *n, unsigned int base);
 #define bn_print_dec(n) bn_print((n), 10)
 #define bn_print_hex(n) bn_print((n), 16)
 
+char *bn_return(const bn *n);
+
 void fibonacci(uint64_t n, bn *fib);
 
 #ifdef __cplusplus
