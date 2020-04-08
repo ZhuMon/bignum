@@ -1,6 +1,7 @@
 fibonacci
 *.o
 *.o.d
+*.o.cmd
 *.dSYM
 .vscode
 .devcontainer
